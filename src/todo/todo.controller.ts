@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   Param,
   Patch,
@@ -12,6 +13,7 @@ import {
   Pagination,
   PageQueryParam,
 } from '../common/decorators/pagination.decorator';
+import { FindTasksType } from './dto/find-tasks.dto';
 import { Todo } from './interfaces/todo.interface';
 import { TodoService } from './todo.service';
 
@@ -20,8 +22,11 @@ export class TodoController {
   constructor(private readonly todoService: TodoService) {}
 
   @Get()
-  async findAll(@Pagination() page: PageQueryParam) {
-    return await this.todoService.findAll(page);
+  async findAll(
+    @Pagination() page: PageQueryParam,
+    @Query('type') type: FindTasksType,
+  ) {
+    return await this.todoService.findAll({ page, type });
   }
 
   @Get(':id')
@@ -40,5 +45,15 @@ export class TodoController {
     @Body() data: Prisma.TaskUpdateInput,
   ): Promise<Todo> {
     return await this.todoService.update(+id, data);
+  }
+
+  @Patch(':id/complete')
+  async markComplete(@Param('id') id: string): Promise<Todo> {
+    return await this.todoService.update(+id, { isFinished: true });
+  }
+
+  @Delete(':id')
+  async removeTask(@Param('id') id: string) {
+    return await this.todoService.delete(+id);
   }
 }
