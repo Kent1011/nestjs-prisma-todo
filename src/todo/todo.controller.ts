@@ -9,10 +9,7 @@ import {
   Query,
 } from '@nestjs/common';
 import { Prisma } from '@prisma/client';
-import {
-  Pagination,
-  PageQueryParam,
-} from '../common/decorators/pagination.decorator';
+import { Pagination, PageQueryParam } from '../common/decorators';
 import { FindTasksType } from './dto/find-tasks.dto';
 import { Todo } from './interfaces/todo.interface';
 import { TodoService } from './todo.service';

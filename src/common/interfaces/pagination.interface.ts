@@ -1,4 +1,4 @@
-import { PageQueryParam } from '../decorators/pagination.decorator';
+import { PageQueryParam } from '../decorators';
 
 export interface Pagination {
   size: number;
