@@ -22,3 +22,15 @@ model Task {
 
   @@map("task")
 }
+
+model User {
+  id          String   @id @default(uuid())
+  mobile      String   @unique
+  email       String?
+  dateCreated DateTime @default(now()) @map("date_created")
+  dateUpdated DateTime @default(now()) @updatedAt @map("date_updated")
+  hash        String // hashed token
+  hashRt      String?  @map("hash_rt") // hashed refresh token
+
+  @@map("user")
+}

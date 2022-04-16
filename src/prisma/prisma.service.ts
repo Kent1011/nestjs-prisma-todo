@@ -1,6 +1,6 @@
 import { INestApplication, Injectable, OnModuleInit } from '@nestjs/common';
 import { Prisma, PrismaClient } from '@prisma/client';
-import { PageQueryParam } from '../common/decorators/pagination.decorator';
+import { PageQueryParam } from '../common/decorators';
 import { prismaLogging } from './prisma-logging.middleware';
 
 @Injectable()

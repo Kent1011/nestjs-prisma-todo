@@ -1,4 +1,4 @@
-import { PageQueryParam } from '../../common/decorators/pagination.decorator';
+import { PageQueryParam } from '../../common/decorators';
 
 export type FindTasksDto = {
   page?: PageQueryParam;
