@@ -1,0 +1,24 @@
+GET http://127.0.0.1:3000/todo
+
+###
+
+GET http://127.0.0.1:3000/todo?p=1&ps=5
+
+
+### 
+GET http://127.0.0.1:3000/todo?p=1&ps=5&type=onlyFinished
+
+
+### 
+POST http://127.0.0.1:3000/auth/login
+Content-Type: application/json
+
+{
+  "mobile": "0999999999",
+  "password": "999999999"
+}
+
+###
+POST http://127.0.0.1:3000/auth/refresh
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkMDYxNDFmMS1iOGI0LTQ5ZTItYTFiMy0xZmRmOTMzOGE5NDkiLCJtb2JpbGUiOiIwOTk5OTk5OTk5IiwiaWF0IjoxNjUwMDcxNzcxLCJleHAiOjE2NTA2NzY1NzF9.1DjRVjBUM6S_1E6qO0RUh6Bx_2YQbA1vYBoq-Ip_hf4
