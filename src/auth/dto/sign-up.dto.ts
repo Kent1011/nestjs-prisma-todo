@@ -2,6 +2,7 @@ import {
   IsEmail,
   IsMobilePhone,
   IsNotEmpty,
+  IsOptional,
   MaxLength,
   MinLength,
 } from 'class-validator';
@@ -11,6 +12,7 @@ export class SignUpDto {
   @IsMobilePhone('zh-TW')
   mobile: string;
 
+  @IsOptional()
   @IsEmail()
   email?: string;
 
